@@ -7,13 +7,13 @@ import MediumCard from "../components/MediumCard";
 import LargeCard from "../components/LargeCard";
 import Footer from "../components/Footer";
 const httpsAgent = require("https-agent");
+import { exploreData, cardsData } from "../data/data";
 
 var agent = httpsAgent({
   rejectUnauthorized: false,
 });
 
-export default function Home(props: any) {
-  const { exploreData, cardsData } = props;
+export default function Home() {
   return (
     <div className="">
       <Head>
@@ -68,19 +68,19 @@ export default function Home(props: any) {
   );
 }
 
-export async function getStaticProps() {
-  const exploreData = await fetch("https://links.papareact.com/pyp", {
-    agent: agent,
-  }).then((res) => res.json());
+// export async function getStaticProps() {
+//   const exploreData = await fetch("https://links.papareact.com/pyp", {}).then(
+//     (res) => res.json()
+//   );
 
-  const cardsData = await fetch("https://links.papareact.com/zp1", {
-    agent: agent,
-  }).then((res) => res.json());
+//   const cardsData = await fetch("https://links.papareact.com/zp1", {}).then(
+//     (res) => res.json()
+//   );
 
-  return {
-    props: {
-      exploreData: exploreData,
-      cardsData: cardsData,
-    },
-  };
-}
+//   return {
+//     props: {
+//       exploreData: exploreData,
+//       cardsData: cardsData,
+//     },
+//   };
+// }
