@@ -8,10 +8,12 @@
   "dependencies": {
     "@heroicons/react": "^1.0.6",
     "https-agent": "^1.0.0",
+    "net": "^1.0.2",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "tailwind-scrollbar-hide": "^1.1.7"
+    "tailwind-scrollbar-hide": "^1.1.7",
+    "tls": "^0.0.1"
   },
   "devDependencies": {
     "@types/node": "18.11.3",
