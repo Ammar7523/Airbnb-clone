@@ -12,7 +12,8 @@ var agent = httpsAgent({
   rejectUnauthorized: false,
 });
 
-export default function Home({ exploreData, cardsData }) {
+export default function Home(props: any) {
+  const { exploreData, cardsData } = props;
   return (
     <div className="">
       <Head>
@@ -25,22 +26,32 @@ export default function Home({ exploreData, cardsData }) {
         <section className="pt-6">
           <h2 className="text-4xl font-semibold pb-5">Explore Nearby</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {exploreData.map(({ img, distance, location }) => {
-              return (
-                <SmallCard
-                  key={img}
-                  img={img}
-                  distance={distance}
-                  location={location}
-                />
-              );
-            })}
+            {exploreData.map(
+              ({
+                img,
+                distance,
+                location,
+              }: {
+                img: any;
+                distance: any;
+                location: any;
+              }) => {
+                return (
+                  <SmallCard
+                    key={img}
+                    img={img}
+                    distance={distance}
+                    location={location}
+                  />
+                );
+              }
+            )}
           </div>
         </section>
         <section>
           <h2 className="text-4xl font-semibold py-8">Live Anywhere</h2>
           <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3">
-            {cardsData.map(({ img, title }) => {
+            {cardsData.map(({ img, title }: { img: any; title: any }) => {
               return <MediumCard key={img} img={img} title={title} />;
             })}
           </div>
@@ -52,7 +63,7 @@ export default function Home({ exploreData, cardsData }) {
           buttonText="Get Inspired"
         />
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
